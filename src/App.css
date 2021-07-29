@@ -26,13 +26,19 @@ h1 {
 /* banner */
 .banner {
   position: relative;
+  background-image: url(../src/images/banner.jpeg);
+  height: 455px;
+  width: 100%;
+  position: relative;
+  background-position: 50%;
+  background-size: cover;
 }
 .banner img {
-  width: 100%;
-  height: 500px;
-  object-fit: cover;
-  border-style: solid;
-  border-image: url(../src/images/tear.svg);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 80px;
+  pointer-events: none;
 }
 .message {
   position: absolute;

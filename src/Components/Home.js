@@ -1,5 +1,6 @@
 import Hero from "./Hero";
-import banner from "../images/banner.jpeg";
+
+import torn from "../images/tear.svg";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -33,7 +34,7 @@ const Home = () => {
           <Hero></Hero>
           {/* ici banner */}
           <div className="banner">
-            <img src={banner} alt="" />
+            <img src={torn} alt="" />
             <div className="message">
               <h1>Prêts à faire du tri dans vo placards ?</h1>
               <button className="sell">Vends maintenant</button>
