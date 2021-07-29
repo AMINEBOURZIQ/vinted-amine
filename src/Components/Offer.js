@@ -5,9 +5,9 @@ import { useState, useEffect } from "react";
 
 const Offer = (props) => {
   const { id } = useParams();
-  console.log(id);
+  // console.log(id);
   const [offer, setOffer] = useState();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,9 +15,10 @@ const Offer = (props) => {
         const response = await axios.get(
           `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
         );
-        // console.log(response.data);
+        console.log(id);
         setOffer(response.data);
         setIsLoading(false);
+        console.log("ici");
       } catch (error) {
         console.log(error.message);
       }
