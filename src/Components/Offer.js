@@ -24,7 +24,7 @@ const Offer = (props) => {
     };
     fetchData();
   }, []);
-  //   console.log(id);
+  console.log(offer);
   return (
     <div>
       {isLoading ? (
@@ -32,7 +32,9 @@ const Offer = (props) => {
       ) : (
         <div>
           <Hero></Hero>
-          <h1>{offer._id}</h1>
+          <h1>{offer.owner.account.username}</h1>
+          <p>{offer.product_description}</p>
+          <img src={offer.product_image.secure_url} alt="" />
         </div>
       )}
     </div>
