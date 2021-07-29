@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import OfferMini from "./OfferMini";
+import Cookies from "js-cookie";
 
 const Home = () => {
   const [offers, setOffers] = useState();
@@ -36,7 +37,7 @@ const Home = () => {
           <div className="banner">
             <img src={torn} alt="" />
             <div className="message">
-              <h1>Prêts à faire du tri dans vo placards ?</h1>
+              <h1>Prêts à faire du tri dans vos placards ? ?</h1>
               <button className="sell">Vends maintenant</button>
               <div>
                 <Link to="/">Découvrir comment ça marche</Link>

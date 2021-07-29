@@ -11,9 +11,15 @@ h1 {
   margin: 0 auto;
 }
 /* hero */
+a {
+  text-decoration: none;
+}
 .hero {
   display: flex;
   justify-content: space-between;
+}
+.hero button {
+  cursor: pointer;
 }
 .hero img {
   height: 45px;
@@ -78,4 +84,26 @@ h1 {
   width: 95%;
   object-fit: cover;
   margin: 0 auto;
+}
+/* Signup */
+.formContainer {
+  margin-top: 5%;
+  display: flex;
+  justify-content: center;
+}
+.formVinted {
+  display: flex;
+  flex-direction: column;
+}
+.formVinted input {
+  width: 200px;
+  margin: 4%;
+  border: none;
+  border-bottom: black 1px solid;
+}
+.ok {
+  display: none;
+}
+.nok {
+  color: red;
 }
