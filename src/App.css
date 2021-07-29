@@ -1,1 +1,51 @@
 /* Other rules */
+* {
+  box-sizing: border-box;
+}
+h1 {
+  font-size: 30px;
+}
+.container {
+  width: 85%;
+  margin: 0 auto;
+}
+/* hero */
+.hero {
+  display: flex;
+  justify-content: space-between;
+}
+.hero img {
+  height: 45px;
+}
+.sell {
+  background-color: #0cadb7;
+  color: white;
+  border: none;
+}
+/* banner */
+.banner {
+  position: relative;
+}
+.banner img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-style: solid;
+  border-image: url(../src/images/tear.svg);
+}
+.message {
+  position: absolute;
+  height: 200px;
+  width: 300px;
+  top: 150px;
+  left: 10%;
+  padding: 5px;
+  background-color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+}
+/* offerMini */
