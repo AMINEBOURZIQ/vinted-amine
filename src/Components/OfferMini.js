@@ -1,9 +1,9 @@
-const OfferMini = () => {
+const OfferMini = ({ offer }) => {
   return (
-    <div>
-      <div className="offermini">
-        <p>ici offer mini</p>
-      </div>
+    <div className="offermini">
+      {}
+      <h2>{offer.owner.account.username}</h2>
+      <img src={offer.product_image.secure_url} alt="" />
     </div>
   );
 };
