@@ -1,6 +1,8 @@
 import Hero from "./Hero";
 import { useState } from "react";
 import axios from "axios";
+import Cookies from "js-cookie";
+
 const Signup = () => {
   const [username, setUsername] = useState("");
   const usernameChange = (event) => {
@@ -20,19 +22,25 @@ const Signup = () => {
   };
   const handelSubmit = async (event) => {
     event.preventDefault();
-    try {
-      const response = await axios.post(
-        "https://lereacteur-vinted-api.herokuapp.com/user/signup",
-        {
-          email: mail,
-          username: username,
-          password: password,
-        }
-      );
-      alert("Merci pour votre inscription");
-      console.log(response);
-    } catch (error) {
-      alert("L'inscription a échoué");
+    if (mail.indexOf("@") === -1) {
+      alert("Merci de saisir une adresse mail valide 🤓");
+    } else {
+      try {
+        const response = await axios.post(
+          "https://lereacteur-vinted-api.herokuapp.com/user/signup",
+          {
+            email: mail,
+            username: username,
+            password: password,
+          }
+        );
+        Cookies.set("userToken", response.data.token);
+        alert(
+          `${response.data.account.username.toUpperCase()} Merci pour votre inscription ✅`
+        );
+      } catch (error) {
+        alert("L'inscription a échoué 😱 réessayez ! ");
+      }
     }
   };
 
