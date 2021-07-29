@@ -5,6 +5,7 @@
 h1 {
   font-size: 30px;
 }
+
 .container {
   width: 85%;
   margin: 0 auto;
@@ -53,9 +54,11 @@ h1 {
   display: flex;
   padding: 5%;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 /* offerMini */
 .offermini {
+  cursor: pointer;
   border: solid red 1px;
   height: 300px;
   width: 200px;

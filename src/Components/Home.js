@@ -15,7 +15,7 @@ const Home = () => {
         const response = await axios.get(
           "https://lereacteur-vinted-api.herokuapp.com/offers?page=1&limit=6"
         );
-        console.log(response.data.offers);
+        // console.log(response.data.offers);
         setOffers(response.data.offers);
         setIsLoading(false);
       } catch (error) {
@@ -44,7 +44,7 @@ const Home = () => {
           </div>
           <div className="offers">
             {offers.map((offer, index) => {
-              console.log(offer._id);
+              // console.log(offer._id);
               return <OfferMini key={offer._id} offer={offer}></OfferMini>;
             })}
           </div>
