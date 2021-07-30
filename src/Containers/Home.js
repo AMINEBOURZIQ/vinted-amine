@@ -1,11 +1,8 @@
-import Hero from "../Components/Hero";
-
 import torn from "../images/tear.svg";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import OfferMini from "../Components/OfferMini";
-import Cookies from "js-cookie";
 
 const Home = () => {
   const [offers, setOffers] = useState();

@@ -1,6 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
+
 const Login = ({ setUser }) => {
+  let history = useHistory();
   const [mail, setMail] = useState("");
   const mailChange = (event) => {
     const newMail = event.target.value;
@@ -26,6 +29,7 @@ const Login = ({ setUser }) => {
           }
         );
         setUser(response.data.token);
+        history.push("/");
       } catch (error) {
         alert("La connexion a échoué 😱 réessayez ! ");
       }

@@ -1,4 +1,3 @@
-import Hero from "../Components/Hero";
 import { useParams } from "react-router";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -24,7 +23,7 @@ const Offer = (props) => {
       }
     };
     fetchData();
-  }, []);
+  }, [id]);
   console.log(offer);
   return (
     <div>
