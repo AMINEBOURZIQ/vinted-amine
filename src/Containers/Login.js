@@ -1,13 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-
-const Signup = ({ setUser }) => {
-  const [username, setUsername] = useState("");
-  const usernameChange = (event) => {
-    const newUsername = event.target.value;
-    setUsername(newUsername);
-  };
-
+const Login = ({ setUser }) => {
   const [mail, setMail] = useState("");
   const mailChange = (event) => {
     const newMail = event.target.value;
@@ -20,24 +13,21 @@ const Signup = ({ setUser }) => {
   };
   const handelSubmit = async (event) => {
     event.preventDefault();
-    if (mail.indexOf("@") === -1) {
-      alert("Merci de saisir une adresse mail valide 🤓");
+    if (!password || !mail) {
+      alert("Merci de saisir un email et un mots de passe");
     } else {
       try {
+        console.log("ici");
         const response = await axios.post(
-          "https://lereacteur-vinted-api.herokuapp.com/user/signup",
+          "https://lereacteur-vinted-api.herokuapp.com/user/login",
           {
             email: mail,
-            username: username,
             password: password,
           }
         );
         setUser(response.data.token);
-        alert(
-          `${response.data.account.username.toUpperCase()} Merci pour votre inscription ✅`
-        );
       } catch (error) {
-        alert("L'inscription a échoué 😱 réessayez ! ");
+        alert("La connexion a échoué 😱 réessayez ! ");
       }
     }
   };
@@ -46,18 +36,17 @@ const Signup = ({ setUser }) => {
     <div>
       <div className="formContainer">
         <form className="formVinted" action="" onSubmit={handelSubmit}>
-          <input type="text" placeholder="username" onChange={usernameChange} />
           <input type="mail" placeholder="email" onChange={mailChange} />
           <input
             type="password"
             placeholder="Mot de passe"
             onChange={passChange}
           />
-          <input className="submit" type="submit" value="S'inscrire" />
+          <input className="submit" type="submit" value="Se connecter" />
         </form>
       </div>
     </div>
   );
 };
 
-export default Signup;
+export default Login;

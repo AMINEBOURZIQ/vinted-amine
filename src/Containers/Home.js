@@ -32,7 +32,6 @@ const Home = () => {
         <span>Loading Data</span>
       ) : (
         <div>
-          <Hero></Hero>
           {/* ici banner */}
           <div className="banner">
             <img src={torn} alt="" />

@@ -32,7 +32,6 @@ const Offer = (props) => {
         <span>Data is Loading</span>
       ) : (
         <div>
-          <Hero></Hero>
           <h1>{offer.owner.account.username}</h1>
           <p>{offer.product_description}</p>
           <img src={offer.product_image.secure_url} alt="" />
