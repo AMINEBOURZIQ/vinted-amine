@@ -1,7 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 const Signup = ({ setUser }) => {
+  let history = useHistory();
   const [username, setUsername] = useState("");
   const usernameChange = (event) => {
     const newUsername = event.target.value;
@@ -36,6 +38,7 @@ const Signup = ({ setUser }) => {
         alert(
           `${response.data.account.username.toUpperCase()} Merci pour votre inscription ✅`
         );
+        history.push("/");
       } catch (error) {
         alert("L'inscription a échoué 😱 réessayez ! ");
       }
