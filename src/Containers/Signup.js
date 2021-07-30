@@ -1,4 +1,3 @@
-import Hero from "./Hero";
 import { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
@@ -46,7 +45,6 @@ const Signup = () => {
 
   return (
     <div>
-      <Hero></Hero>
       <div className="formContainer">
         <form className="formVinted" action="" onSubmit={handelSubmit}>
           <input type="text" placeholder="username" onChange={usernameChange} />
@@ -56,7 +54,7 @@ const Signup = () => {
             placeholder="Mot de passe"
             onChange={passChange}
           />
-          <input type="submit" value="s'inscrire" />
+          <input className="submit" type="submit" value="S'inscrire" />
         </form>
       </div>
     </div>

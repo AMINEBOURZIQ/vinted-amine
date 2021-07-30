@@ -1,8 +1,8 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Offer from "./Components/Offer";
-import Home from "./Components/Home";
-import Signup from "./Components/Signup";
+import Offer from "./Containers/Offer";
+import Home from "./Containers/Home";
+import Signup from "./Containers/Signup";
 
 function App() {
   return (

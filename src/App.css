@@ -94,16 +94,53 @@ a {
 .formVinted {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .formVinted input {
-  width: 200px;
-  margin: 4%;
+  width: 300px;
+  margin: 5%;
   border: none;
-  border-bottom: black 1px solid;
+  border-bottom: #10acb7 1px solid;
+  font-size: 18px;
+  height: 40px;
 }
-.ok {
-  display: none;
+.submit {
+  background-color: #10acb7;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
 }
-.nok {
-  color: red;
+.closeSignup {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #10acb7;
+  border-radius: 5px;
+  color: white;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+}
+.mymodal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border: 1px solid #ccc;
+  background: #fff;
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+  padding: 20px;
+}
+
+.myoverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
 }

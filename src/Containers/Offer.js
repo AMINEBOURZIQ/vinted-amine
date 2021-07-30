@@ -1,4 +1,4 @@
-import Hero from "./Hero";
+import Hero from "../Components/Hero";
 import { useParams } from "react-router";
 import axios from "axios";
 import { useState, useEffect } from "react";
