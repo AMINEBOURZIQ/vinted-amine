@@ -29,7 +29,7 @@ const Login = ({ setUser }) => {
           }
         );
         setUser(response.data.token);
-        history.push("/");
+        history.goBack("/");
       } catch (error) {
         alert("La connexion a échoué 😱 réessayez ! ");
       }

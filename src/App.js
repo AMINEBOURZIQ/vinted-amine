@@ -19,8 +19,6 @@ function App() {
   return (
     <Router>
       <Hero setUser={setUser} userToken={userToken}></Hero>
-      {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
       <Switch>
         <Route path="/login">
           <Login setUser={setUser} userToken={userToken} />
@@ -29,7 +27,11 @@ function App() {
           <Signup />
         </Route>
         <Route path="/offer/:id">
-          {userToken ? <Offer /> : <Redirect to="/login" />}
+          {userToken ? (
+            <Offer userToken={userToken} />
+          ) : (
+            <Redirect to="/login" />
+          )}
         </Route>
         <Route exact path="/">
           <Home />

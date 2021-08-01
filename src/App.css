@@ -1,6 +1,13 @@
 /* Other rules */
+body {
+  font-family: "Roboto";
+}
 * {
   box-sizing: border-box;
+}
+a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
 }
 h1 {
   font-size: 30px;
@@ -10,13 +17,15 @@ h1 {
   width: 85%;
   margin: 0 auto;
 }
-/* hero */
 a {
   text-decoration: none;
 }
+/* hero */
+
 .hero {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .hero button {
   cursor: pointer;
@@ -68,22 +77,37 @@ a {
   justify-content: space-between;
   flex-wrap: wrap;
 }
+.pagination {
+  margin: 0px auto 200px auto;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  outline: none;
+}
+.pagination > li > a {
+  border: 1px solid #0cadb7;
+  padding: 5px 10px;
+  outline: none;
+  cursor: pointer;
+}
 /* offerMini */
 .offermini {
   cursor: pointer;
   border: solid red 1px;
-  height: 300px;
-  width: 200px;
-  margin: 5px;
+  height: 350px;
+  width: 300px;
+  margin: 10px auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  text-align: center;
 }
 .offermini img {
-  width: 95%;
+  width: 80%;
   object-fit: cover;
   margin: 0 auto;
+  justify-content: center;
 }
 /* Signup */
 .formContainer {
@@ -101,12 +125,12 @@ a {
   width: 300px;
   margin: 5%;
   border: none;
-  border-bottom: #10acb7 1px solid;
+  border-bottom: #0cadb7 1px solid;
   font-size: 18px;
   height: 40px;
 }
 .submit {
-  background-color: #10acb7;
+  background-color: #0cadb7;
   border-radius: 5px;
   color: white;
   cursor: pointer;
@@ -115,7 +139,7 @@ a {
   position: absolute;
   top: 0;
   right: 0;
-  background-color: #10acb7;
+  background-color: #0cadb7;
   border-radius: 5px;
   color: white;
   border: none;
@@ -143,4 +167,30 @@ a {
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.75);
+}
+/* pagination */
+.pagination {
+  margin-top: 45px;
+  margin-left: -40px;
+  display: flex;
+  list-style: none;
+  outline: none;
+}
+
+.pagination > .active > a {
+  background-color: #0cadb7;
+  color: #fff;
+}
+
+.pagination > li > a {
+  border: 1px solid #0cadb7;
+  padding: 5px 10px;
+  outline: none;
+  cursor: pointer;
+}
+
+.pagination > li > a,
+.pagination > li > span {
+  color: #0cadb7;
+  background-color: azure;
 }
