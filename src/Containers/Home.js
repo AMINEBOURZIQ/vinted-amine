@@ -25,8 +25,10 @@ const Home = ({ filters }) => {
   // function to get all posts from database
   const getAllPosts = async () => {
     try {
+      console.log("ici home");
+      console.log(filters.sort);
       const res1 = await axios.get(
-        `https://lereacteur-vinted-api.herokuapp.com/offers`
+        `https://lereacteur-vinted-api.herokuapp.com/offers?${filters.sort}&${filters.title}`
       );
       const numberOfPages = Math.ceil(res1.data.count / postsPerPage);
       setPageCount(numberOfPages);
@@ -61,7 +63,7 @@ const Home = ({ filters }) => {
       setIsLoading(false);
     }
     fetchData();
-  }, [offset]);
+  }, [offset, filters]);
 
   return (
     <div>

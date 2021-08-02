@@ -31,19 +31,46 @@ const Hero = ({ setUser, userToken, filters, setFilters }) => {
     setIsOpen2(!isOpen2);
   }
   const handelSearch = (event) => {
-    filters.title = event.target.value;
-    console.log(filters);
+    const newFilters = { ...filters };
+    newFilters.title = `title=${event.target.value}`;
+    setFilters(newFilters);
+  };
+  const handelOrder = (event) => {
+    const newFilters = { ...filters };
+    if (newFilters.sort === "sort=price-asc") {
+      newFilters.sort = "sort=price-desc";
+    } else {
+      newFilters.sort = "sort=price-asc";
+    }
+    setFilters(newFilters);
   };
 
   return (
     <div className="container">
       <div className="hero">
         <img src={logo} alt="" onClick={() => history1.push("/")} />
-        <input
-          type="text"
-          placeholder="Recherche des articles"
-          onChange={handelSearch}
-        />
+        <div className="filters">
+          <input
+            type="text"
+            placeholder="Recherche des articles"
+            onChange={handelSearch}
+          />
+          <div className="toggels" onChange={handelOrder}>
+            <div className="flipswitch">
+              <input
+                type="checkbox"
+                name="flipswitch"
+                className="flipswitch-cb"
+                id="fs"
+              />
+              <label className="flipswitch-label" for="fs">
+                <div className="flipswitch-inner"></div>
+                <div className="flipswitch-switch"></div>
+              </label>
+            </div>
+          </div>
+        </div>
+
         {userToken ? (
           <button onClick={disconnect}>
             Se déconnecter <Link to="/"></Link>
