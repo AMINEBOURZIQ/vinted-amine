@@ -6,7 +6,6 @@ import Hero from "./Components/Hero";
 import Signup from "./Containers/Signup";
 import Login from "./Containers/Login";
 import Cookies from "js-cookie";
-import { Redirect } from "react-router-dom"; //rappel
 
 import { useState } from "react";
 
@@ -33,11 +32,7 @@ function App() {
           <Signup />
         </Route>
         <Route path="/offer/:id">
-          {userToken ? (
-            <Offer userToken={userToken} />
-          ) : (
-            <Redirect to="/login" />
-          )}
+          <Offer userToken={userToken} />
         </Route>
         <Route exact path="/">
           <Home filters={filters} />

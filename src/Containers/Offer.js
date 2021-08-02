@@ -1,8 +1,9 @@
 import { useParams } from "react-router";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Redirect } from "react-router-dom"; //rappel
 
-const Offer = (props) => {
+const Offer = ({ userToken }) => {
   const { id } = useParams();
   // console.log(id);
   const [offer, setOffer] = useState();
@@ -27,14 +28,20 @@ const Offer = (props) => {
   console.log(offer);
   return (
     <div>
-      {isLoading ? (
-        <span>Data is Loading</span>
-      ) : (
+      {userToken ? (
         <div>
-          <h1>{offer.owner.account.username}</h1>
-          <p>{offer.product_description}</p>
-          <img src={offer.product_image.secure_url} alt="" />
+          {isLoading ? (
+            <span>Data is Loading</span>
+          ) : (
+            <div>
+              <h1>{offer.owner.account.username}</h1>
+              <p>{offer.product_description}</p>
+              <img src={offer.product_image.secure_url} alt="" />
+            </div>
+          )}
         </div>
+      ) : (
+        <Redirect to="/login" />
       )}
     </div>
   );
