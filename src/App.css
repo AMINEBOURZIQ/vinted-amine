@@ -235,14 +235,14 @@ a {
   box-sizing: border-box;
 }
 .flipswitch-inner:after {
-  content: "↥";
+  content: "↧";
   padding-left: 26px;
   background-color: #0db1bb;
   color: #ffffff;
   text-align: center;
 }
 .flipswitch-inner:before {
-  content: "↧";
+  content: "↥";
   padding-right: 26px;
   background-color: #bb136c;
   color: #000000;

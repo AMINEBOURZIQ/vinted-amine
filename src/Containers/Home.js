@@ -25,8 +25,6 @@ const Home = ({ filters }) => {
   // function to get all posts from database
   const getAllPosts = async () => {
     try {
-      console.log("ici home");
-      console.log(filters.sort);
       const res1 = await axios.get(
         `https://lereacteur-vinted-api.herokuapp.com/offers?${filters.sort}&${filters.title}`
       );

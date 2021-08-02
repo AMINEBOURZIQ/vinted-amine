@@ -11,7 +11,7 @@ import { Redirect } from "react-router-dom"; //rappel
 import { useState } from "react";
 
 function App() {
-  const [filters, setFilters] = useState({ sort: "sort=price-asc&" });
+  const [filters, setFilters] = useState({ sort: "sort=price-desc" });
   const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
   const setUser = (token) => {
     Cookies.set("userToken", token);

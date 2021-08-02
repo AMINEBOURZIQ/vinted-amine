@@ -36,6 +36,7 @@ const Hero = ({ setUser, userToken, filters, setFilters }) => {
     setFilters(newFilters);
   };
   const handelOrder = (event) => {
+    console.log(event);
     const newFilters = { ...filters };
     if (newFilters.sort === "sort=price-asc") {
       newFilters.sort = "sort=price-desc";
