@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
 import OfferMini from "../Components/OfferMini";
 
-const Home = () => {
+const Home = ({ filters }) => {
   const [postsPerPage] = useState(4);
   const [offset, setOffset] = useState(0);
   const [posts, setAllPosts] = useState([]);
@@ -30,33 +30,37 @@ const Home = () => {
       );
       const numberOfPages = Math.ceil(res1.data.count / postsPerPage);
       setPageCount(numberOfPages);
-      const res = await axios.get(
-        `https://lereacteur-vinted-api.herokuapp.com/offers?page=${
-          offset + 1
-        }&limit=${postsPerPage}`
-      );
-      const data = res.data.offers;
+      // console.log(res1.data.offers);
+      // console.log(offset);
+      // console.log(offset + postsPerPage);
+      const res = res1.data.offers.slice(offset, offset + postsPerPage);
+      // console.log(res);
+      const data = res;
       const postData = getPostData(data);
 
       // Using Hooks to set value
       setAllPosts(postData);
       // setPageCount(Math.ceil(data.length / postsPerPage));
-      setIsLoading(false);
+      // setIsLoading(false);
     } catch (error) {
       console.log(error.message);
     }
   };
   const handlePageClick = (event) => {
+    console.log(event.selected);
     const selectedPage = event.selected;
     // console.log(selectedPage);
 
-    setOffset(selectedPage);
+    setOffset(selectedPage * postsPerPage);
   };
 
-  useEffect(async () => {
-    setIsLoading(true);
-    await getAllPosts();
-    setIsLoading(false);
+  useEffect(() => {
+    async function fetchData() {
+      setIsLoading(true);
+      await getAllPosts();
+      setIsLoading(false);
+    }
+    fetchData();
   }, [offset]);
 
   return (

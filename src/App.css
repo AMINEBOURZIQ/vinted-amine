@@ -32,6 +32,7 @@ a {
 }
 .hero img {
   height: 45px;
+  cursor: pointer;
 }
 .sell {
   background-color: #0cadb7;

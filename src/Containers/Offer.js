@@ -1,7 +1,6 @@
 import { useParams } from "react-router";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Redirect } from "react-router-dom";
 
 const Offer = (props) => {
   const { id } = useParams();

@@ -11,6 +11,7 @@ import { Redirect } from "react-router-dom"; //rappel
 import { useState } from "react";
 
 function App() {
+  const [filters, setFilters] = useState({});
   const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
   const setUser = (token) => {
     Cookies.set("userToken", token);
@@ -18,7 +19,12 @@ function App() {
   };
   return (
     <Router>
-      <Hero setUser={setUser} userToken={userToken}></Hero>
+      <Hero
+        setUser={setUser}
+        userToken={userToken}
+        filters={filters}
+        setFilters={setFilters}
+      ></Hero>
       <Switch>
         <Route path="/login">
           <Login setUser={setUser} userToken={userToken} />
@@ -34,7 +40,7 @@ function App() {
           )}
         </Route>
         <Route exact path="/">
-          <Home />
+          <Home filters={filters} />
         </Route>
       </Switch>
     </Router>

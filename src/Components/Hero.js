@@ -10,7 +10,7 @@ import { useHistory } from "react-router-dom";
 Modal1.setAppElement("#root");
 Modal2.setAppElement("#root");
 
-const Hero = ({ setUser, userToken }) => {
+const Hero = ({ setUser, userToken, filters, setFilters }) => {
   let history1 = useHistory();
   const [isOpen1, setIsOpen1] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
@@ -30,12 +30,20 @@ const Hero = ({ setUser, userToken }) => {
   function toggleModal2() {
     setIsOpen2(!isOpen2);
   }
+  const handelSearch = (event) => {
+    filters.title = event.target.value;
+    console.log(filters);
+  };
 
   return (
     <div className="container">
       <div className="hero">
-        <img src={logo} alt="" />
-        <input type="text" placeholder="Recherche des articles" />
+        <img src={logo} alt="" onClick={() => history1.push("/")} />
+        <input
+          type="text"
+          placeholder="Recherche des articles"
+          onChange={handelSearch}
+        />
         {userToken ? (
           <button onClick={disconnect}>
             Se déconnecter <Link to="/"></Link>
