@@ -2,11 +2,12 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Offer from "./Containers/Offer";
 import Home from "./Containers/Home";
-import Hero from "./Components/Hero";
+import Hero from "./Components/HomeHero";
+import SimpleHero from "./Components/SimpleHero";
 import Signup from "./Containers/Signup";
 import Login from "./Containers/Login";
 import Cookies from "js-cookie";
-
+import Publish from "./Containers/Publish";
 import { useState } from "react";
 
 function App() {
@@ -18,23 +19,30 @@ function App() {
   };
   return (
     <Router>
-      <Hero
-        setUser={setUser}
-        userToken={userToken}
-        filters={filters}
-        setFilters={setFilters}
-      ></Hero>
       <Switch>
         <Route path="/login">
+          <SimpleHero setUser={setUser} userToken={userToken}></SimpleHero>
           <Login setUser={setUser} userToken={userToken} />
         </Route>
         <Route path="/signup">
+          <SimpleHero setUser={setUser} userToken={userToken}></SimpleHero>
           <Signup />
         </Route>
         <Route path="/offer/:id">
+          <SimpleHero setUser={setUser} userToken={userToken}></SimpleHero>
           <Offer userToken={userToken} />
         </Route>
+        <Route path="/publish">
+          <SimpleHero setUser={setUser} userToken={userToken}></SimpleHero>
+          <Publish />
+        </Route>
         <Route exact path="/">
+          <Hero
+            setUser={setUser}
+            userToken={userToken}
+            filters={filters}
+            setFilters={setFilters}
+          ></Hero>
           <Home filters={filters} />
         </Route>
       </Switch>

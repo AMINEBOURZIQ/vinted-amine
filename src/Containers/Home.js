@@ -12,40 +12,9 @@ const Home = ({ filters }) => {
   const [pageCount, setPageCount] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   //function that returns html code to show
-  const getPostData = (offers) => {
-    return (
-      <div className="offers">
-        {offers.map((offer, index) => {
-          // console.log(offer._id);
-          return <OfferMini key={offer._id} offer={offer}></OfferMini>;
-        })}
-      </div>
-    );
-  };
-  // function to get all posts from database
-  const getAllPosts = async () => {
-    try {
-      const res1 = await axios.get(
-        `https://lereacteur-vinted-api.herokuapp.com/offers?${filters.sort}&${filters.title}`
-      );
-      const numberOfPages = Math.ceil(res1.data.count / postsPerPage);
-      setPageCount(numberOfPages);
-      // console.log(res1.data.offers);
-      // console.log(offset);
-      // console.log(offset + postsPerPage);
-      const res = res1.data.offers.slice(offset, offset + postsPerPage);
-      // console.log(res);
-      const data = res;
-      const postData = getPostData(data);
 
-      // Using Hooks to set value
-      setAllPosts(postData);
-      // setPageCount(Math.ceil(data.length / postsPerPage));
-      // setIsLoading(false);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
+  // function to get all posts from database
+
   const handlePageClick = (event) => {
     console.log(event.selected);
     const selectedPage = event.selected;
@@ -55,6 +24,39 @@ const Home = ({ filters }) => {
   };
 
   useEffect(() => {
+    const getPostData = (offers) => {
+      return (
+        <div className="offers">
+          {offers.map((offer, index) => {
+            // console.log(offer._id);
+            return <OfferMini key={offer._id} offer={offer}></OfferMini>;
+          })}
+        </div>
+      );
+    };
+    const getAllPosts = async () => {
+      try {
+        const res1 = await axios.get(
+          `https://lereacteur-vinted-api.herokuapp.com/offers?${filters.sort}&${filters.title}`
+        );
+        const numberOfPages = Math.ceil(res1.data.count / postsPerPage);
+        setPageCount(numberOfPages);
+        // console.log(res1.data.offers);
+        // console.log(offset);
+        // console.log(offset + postsPerPage);
+        const res = res1.data.offers.slice(offset, offset + postsPerPage);
+        // console.log(res);
+        const data = res;
+        const postData = getPostData(data);
+
+        // Using Hooks to set value
+        setAllPosts(postData);
+        // setPageCount(Math.ceil(data.length / postsPerPage));
+        // setIsLoading(false);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
     async function fetchData() {
       setIsLoading(true);
       await getAllPosts();

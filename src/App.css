@@ -198,9 +198,6 @@ a {
   background-color: azure;
 }
 /* Toggle asc desc */
-.toggels {
-  display: inline;
-}
 
 .flipswitch {
   position: relative;
@@ -230,21 +227,21 @@ a {
   line-height: 24px;
   font-size: 24px;
   color: white;
-  font-family: Trebuchet, Arial, sans-serif;
+
   font-weight: bold;
   box-sizing: border-box;
 }
 .flipswitch-inner:after {
-  content: "↧";
+  content: "€ ↧";
   padding-left: 26px;
   background-color: #0db1bb;
   color: #ffffff;
   text-align: center;
 }
 .flipswitch-inner:before {
-  content: "↥";
+  content: "€ ↥";
   padding-right: 26px;
-  background-color: #bb136c;
+  background-color: white;
   color: #000000;
   text-align: center;
 }

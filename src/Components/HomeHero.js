@@ -64,7 +64,7 @@ const Hero = ({ setUser, userToken, filters, setFilters }) => {
                 className="flipswitch-cb"
                 id="fs"
               />
-              <label className="flipswitch-label" for="fs">
+              <label className="flipswitch-label" htmlFor="fs">
                 <div className="flipswitch-inner"></div>
                 <div className="flipswitch-switch"></div>
               </label>
@@ -114,7 +114,9 @@ const Hero = ({ setUser, userToken, filters, setFilters }) => {
           </div>
         )}
 
-        <button className="sell">vends des articles</button>
+        <button className="sell" onClick={() => history1.push("/publish")}>
+          vends des articles
+        </button>
       </div>
     </div>
   );
