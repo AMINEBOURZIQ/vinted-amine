@@ -8,6 +8,7 @@ import Signup from "./Containers/Signup";
 import Login from "./Containers/Login";
 import Cookies from "js-cookie";
 import Publish from "./Containers/Publish";
+import Payment from "./Containers/Payment";
 import { useState } from "react";
 
 function App() {
@@ -30,11 +31,15 @@ function App() {
         </Route>
         <Route path="/offer/:id">
           <SimpleHero setUser={setUser} userToken={userToken}></SimpleHero>
-          <Offer />
+          <Offer userToken={userToken} />
         </Route>
         <Route path="/publish">
           <SimpleHero setUser={setUser} userToken={userToken}></SimpleHero>
-          <Publish />
+          <Publish userToken={userToken} />
+        </Route>
+        <Route path="/payment/">
+          <SimpleHero setUser={setUser} userToken={userToken}></SimpleHero>
+          <Payment />
         </Route>
         <Route exact path="/">
           <Hero

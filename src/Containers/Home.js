@@ -22,20 +22,21 @@ const Home = ({ filters }) => {
 
     setOffset(selectedPage * postsPerPage);
   };
+  const getPostData = (offers) => {
+    return (
+      <div className="offers">
+        {offers.map((offer, index) => {
+          // console.log(offer._id);
+          return <OfferMini key={offer._id} offer={offer}></OfferMini>;
+        })}
+      </div>
+    );
+  };
 
   useEffect(() => {
-    const getPostData = (offers) => {
-      return (
-        <div className="offers">
-          {offers.map((offer, index) => {
-            // console.log(offer._id);
-            return <OfferMini key={offer._id} offer={offer}></OfferMini>;
-          })}
-        </div>
-      );
-    };
     const getAllPosts = async () => {
       try {
+        setIsLoading(true);
         const res1 = await axios.get(
           `https://lereacteur-vinted-api.herokuapp.com/offers?${filters.sort}&${filters.title}`
         );
@@ -53,17 +54,13 @@ const Home = ({ filters }) => {
         setAllPosts(postData);
         // setPageCount(Math.ceil(data.length / postsPerPage));
         // setIsLoading(false);
+        setIsLoading(false);
       } catch (error) {
         console.log(error.message);
       }
     };
-    async function fetchData() {
-      setIsLoading(true);
-      await getAllPosts();
-      setIsLoading(false);
-    }
-    fetchData();
-  }, [offset, filters]);
+    getAllPosts();
+  }, [filters, offset, postsPerPage]);
 
   return (
     <div>

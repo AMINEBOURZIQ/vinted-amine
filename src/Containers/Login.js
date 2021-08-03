@@ -29,6 +29,7 @@ const Login = ({ setUser }) => {
           }
         );
         setUser(response.data.token);
+
         history.push("/");
       } catch (error) {
         alert("La connexion a échoué 😱 réessayez ! ");

@@ -78,7 +78,9 @@ const SimpleHero = ({ setUser, userToken }) => {
           </div>
         )}
 
-        <button className="sell">vends des articles</button>
+        <button className="sell" onClick={() => history1.push("/publish")}>
+          vends des articles
+        </button>
       </div>
     </div>
   );

@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 const OfferMini = ({ offer }) => {
-  //   console.log(offer._id);
   return (
     <Link to={`/offer/${offer._id}`} className="offermini">
       <div>

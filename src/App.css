@@ -263,3 +263,32 @@ a {
 .flipswitch-cb:checked + .flipswitch-label .flipswitch-switch {
   right: 0;
 }
+/* Publish */
+.PublishInputs {
+  display: flex;
+  margin-bottom: 10px;
+}
+.PublishInputs h2 {
+  display: flex;
+  margin-right: 10px;
+}
+textarea {
+  width: 300px;
+  height: 150px;
+}
+/* Payment */
+.checkform {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 400px;
+  margin: 60px auto;
+}
+.descPayment {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.checkform form input {
+  margin-top: 20px;
+}
