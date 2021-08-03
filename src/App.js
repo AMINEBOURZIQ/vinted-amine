@@ -30,7 +30,7 @@ function App() {
         </Route>
         <Route path="/offer/:id">
           <SimpleHero setUser={setUser} userToken={userToken}></SimpleHero>
-          <Offer userToken={userToken} />
+          <Offer />
         </Route>
         <Route path="/publish">
           <SimpleHero setUser={setUser} userToken={userToken}></SimpleHero>

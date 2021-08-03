@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom"; //rappel
 
-const Offer = ({ userToken }) => {
+const Offer = () => {
   const { id } = useParams();
   // console.log(id);
   const [offer, setOffer] = useState();
@@ -28,20 +28,14 @@ const Offer = ({ userToken }) => {
   console.log(offer);
   return (
     <div>
-      {userToken ? (
-        <div>
-          {isLoading ? (
-            <span>Data is Loading</span>
-          ) : (
-            <div>
-              <h1>{offer.owner.account.username}</h1>
-              <p>{offer.product_description}</p>
-              <img src={offer.product_image.secure_url} alt="" />
-            </div>
-          )}
-        </div>
+      {isLoading ? (
+        <span>Data is Loading</span>
       ) : (
-        <Redirect to="/login" />
+        <div>
+          <h1>{offer.owner.account.username}</h1>
+          <p>{offer.product_description}</p>
+          <img src={offer.product_image.secure_url} alt="" />
+        </div>
       )}
     </div>
   );
