@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import axios from "axios";
 
-const CheckoutForm = ({ price, title, sellerId, buyerToken }) => {
+const CheckoutForm = ({ price, title, buyerToken }) => {
   const stripe = useStripe();
   const elements = useElements();
   const buyerProtection = (price * 10) / 100;
@@ -13,8 +13,7 @@ const CheckoutForm = ({ price, title, sellerId, buyerToken }) => {
       event.preventDefault();
       const cardElements = elements.getElement(CardElement);
       const stripeResponse = await stripe.createToken(cardElements, {
-        Seller: sellerId,
-        Buyer: buyerToken,
+        name : buyerToken
       });
       console.log(stripeResponse);
       const response = await axios.post("https://vintedback.herokuapp.com/payment", {
