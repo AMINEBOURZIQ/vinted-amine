@@ -13,7 +13,7 @@ const CheckoutForm = ({ price, title, buyerToken }) => {
       event.preventDefault();
       const cardElements = elements.getElement(CardElement);
       const stripeResponse = await stripe.createToken(cardElements, {
-        name : buyerToken
+        name : buyerToken,
       });
       console.log(stripeResponse);
       const response = await axios.post("https://vintedback.herokuapp.com/payment", {
