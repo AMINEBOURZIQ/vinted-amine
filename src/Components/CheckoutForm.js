@@ -48,8 +48,7 @@ const CheckoutForm = ({ price, title, buyerToken }) => {
         <span>{`${total}€`}</span>
       </div>
       <div className="descPayment">
-        <span>{`Il ne vous reste plus qu'un étape pour vous offrir ${title}. Vous allez payer ${total.toFixed(2)} € (frais de protection et frais de port inclus).
-`}</span>
+        <span>{`Il ne vous reste plus qu une étape pour vous offrir ${title}. Vous allez payer ${total.toFixed(2)} € frais de protection et frais de port inclus`}</span>
       </div>
 
       <form onSubmit={handleSubmit}>
