@@ -7,7 +7,7 @@ const CheckoutForm = ({ price, title, buyerToken }) => {
   const elements = useElements();
   const buyerProtection = (price * 10) / 100;
   const shipping = (price * 20) / 100;
-  const total = buyerProtection + shipping;
+  const total = price + buyerProtection + shipping;
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
