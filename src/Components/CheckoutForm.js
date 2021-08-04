@@ -16,7 +16,7 @@ const CheckoutForm = ({ price, title, buyerToken }) => {
         name : buyerToken,
       });
       console.log(stripeResponse);
-      const response = await axios.post("https://vintedback.herokuapp.com:4000/payment", {
+      const response = await axios.post("https://vintedback.herokuapp.com/payment", {
         stripeToken: stripeResponse.token.id,
         price: price,
       });
