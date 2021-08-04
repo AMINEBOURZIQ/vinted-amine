@@ -27,7 +27,8 @@ const CheckoutForm = ({ price, title, sellerId, buyerToken }) => {
         alert("problème lors du paiement");
       }
     } catch (error) {
-      console.log(error.message);
+            console.log(error.response.data.message); // au lieu de error.message
+
     }
   };
   return (
